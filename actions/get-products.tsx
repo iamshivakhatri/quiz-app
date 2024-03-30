@@ -1,6 +1,6 @@
 import { ProductListResponse } from '@/types';
 
-const getProducts = async (id: string): Promise<ProductListResponse | null> => {
+const getProducts = async (inputvalue: string): Promise<ProductListResponse | null> => {
   try {
     const textToSend = "Hello sajan. I am a bot. I am here to help you. How can I help you today?";
     
