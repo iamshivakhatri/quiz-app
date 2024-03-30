@@ -1,29 +1,18 @@
-"use client"
-import express, { Request, Response } from 'express';
-import qrcode from 'qrcode';
-import React, { useState } from 'react';
+// Inside one of your Next.js pages, for example, pages/QRCodePage.js
 
+import React from 'react';
 
-const Qrcode = () => {
-    const [qrImage, setQrImage] = useState<string | null>(null);
-
-    const generateQRCode = async () => {
-        try {
-            const data = 'Your data here'; // You can replace this with your desired data
-            const qrDataURL = await qrcode.toDataURL(data);
-            setQrImage(qrDataURL);
-        } catch (error) {
-            console.error('Error generating QR code:', error);
-        }
-    };
+const QRCodePage = () => {
+    // Path to the qrcode.png file
+    const qrCodeImagePath = '/qrcode.png'; // Relative path to the image from the public directory
 
     return (
-        <div>
-            <h1>QR Code</h1>
-            <button onClick={generateQRCode}>Generate QR Code</button>
-            {qrImage && <img src={qrImage} alt="QR Code" />}
+        <div className="flex justify-center items-center h-screen">
+            <div>
+                <img src={qrCodeImagePath} alt="QR Code" className="mx-auto max-w-xl max-h-xl" />
+            </div>
         </div>
     );
 };
 
-export default Qrcode;
+export default QRCodePage;

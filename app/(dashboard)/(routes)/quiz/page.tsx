@@ -8,7 +8,7 @@ type Question = {
     id: number;
     question: string;
     options: string[];
-    correctAnswer: string;
+    answer: string;
 };
 
 const Quiz = () => {
@@ -17,20 +17,61 @@ const Quiz = () => {
     const router = useRouter();
     const questions: Question[] = [
         {
-            id: 1,
-            question: 'What is the capital of France?',
-            options: ['Paris', 'London', 'Berlin', 'Madrid'],
-            correctAnswer: 'Paris'
+            "id": 1,
+            "question": "What is the key difference between git fork and git clone as explained by Cameron McKenzie",
+            "options": [
+                "Amount of control over repository",
+                "Number of repositories",
+                "Type of files",
+                "GitHub URLs"
+            ],
+            "answer": "Amount of control over repository."
         },
         {
-            id: 2,
-            question: 'What is the largest planet in our solar system?',
-            options: ['Mars', 'Venus', 'Jupiter', 'Saturn'],
-            correctAnswer: 'Jupiter'
+            "id": 2,
+            "question": "According to Cameron McKenzie, what can a developer do with the cloned repository",
+            "options": [
+                "Make changes",
+                "Delete repository",
+                "Rename repository",
+                "Share repository"
+            ],
+            "answer": "Make changes."
         },
-        // Add more questions as needed
-    ];
-
+        {
+            "id": 3,
+            "question": "In the scenario described by Cameron McKenzie, what is the example repository owned by him called",
+            "options": [
+                "Cameron McNz",
+                "J Guevara",
+                "Rock Paper Scissors",
+                "Java Revolutionary"
+            ],
+            "answer": "Cameron McNz."
+        },
+        {
+            "id": 4,
+            "question": "How does a developer obtain the GitHub URL necessary for cloning a repository",
+            "options": [
+                "Request from administrator",
+                "Generate during clone",
+                "Find in repository settings",
+                "Locate in the README file"
+            ],
+            "answer": "Locate in the README file."
+        },
+        {
+            "id": 5,
+            "question": "After performing git add and git commit on the cloned repository, what is the next step described by Cameron McKenzie",
+            "options": [
+                "Git pull",
+                "Git push",
+                "Git merge",
+                "Git branch"
+            ],
+            "answer": "Git push."
+        }
+    ]
     // Generate a unique ID for each participant
     const generateUniqueID = (): string => {
         return Math.random().toString(36).substr(2, 9);
@@ -56,7 +97,7 @@ const Quiz = () => {
     const calculateScore = () => {
         let newScore = 0;
         questions.forEach(question => {
-            if (selectedAnswers[question.id] === question.correctAnswer) {
+            if (selectedAnswers[question.id] === question.answer) {
                 newScore++;
             }
         });

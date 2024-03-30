@@ -14,11 +14,7 @@ export const MainNav = ({className, ...props}: React.HTMLAttributes<HTMLElement>
             label: "Home",
             active: pathname === "/"
         },
-        {
-            href: "/resume",
-            label: "Resume",
-            active: pathname === "/resume"
-        },
+        
         {
             href: "/qrcode",
             label: "QR Code",
